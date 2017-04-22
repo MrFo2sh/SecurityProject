@@ -44,7 +44,7 @@ public class CryptographyManager {
 	
 	/**
 	 * @param key
-	 * @param plainText
+	 * @param cipherText
 	 * @param algorithm name
 	 * @return Plain Text
 	 * @throws InvalidInputException
@@ -57,22 +57,22 @@ public class CryptographyManager {
 	 * <br>
 	 * Supported algorithms ("PlayFair6x6, RailFence, RowTransposition, Vigenere, Monoalphabetic, AES128, Caesar").
 	 */
-	public static String decrypt(String key, String plainText, String algorithm) throws InvalidInputException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException{
+	public static String decrypt(String key, String cipherText, String algorithm) throws InvalidInputException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException{
 			switch(algorithm.toLowerCase()){
 			case "playfair":
-				return PlayFair6x6.decrypt(key, plainText);
+				return PlayFair6x6.decrypt(key, cipherText);
 			case "railfence":
-				return RailFence.decrypt(Integer.parseInt(key), plainText);
+				return RailFence.decrypt(Integer.parseInt(key), cipherText);
 			case "rowtransposition":
-				return RowTransposition.decrypt(key, plainText);
+				return RowTransposition.decrypt(key, cipherText);
 			case "vigenere":
-				return Vigenere.decrypt(key, plainText);
+				return Vigenere.decrypt(key, cipherText);
 			case "monoalphabetic":
-				return Monoalphabetic.decrypt(key, plainText);
+				return Monoalphabetic.decrypt(key, cipherText);
 			case "aes":
-				AES.encrypt(key, plainText);
+				AES.decrypt(key, cipherText);
 			case "caesar":
-				return Caesar.decrypt(plainText, Integer.parseInt(key));
+				return Caesar.decrypt(cipherText, Integer.parseInt(key));
 		}
 		return null;
 	}
