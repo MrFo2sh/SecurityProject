@@ -3,7 +3,6 @@ class RowTransposition {
 	public static String decrypt(String sequence, String cipherText) throws InvalidInputException{
 		if(sequence.length() > cipherText.length())
 			throw new InvalidInputException();
-		
 		int columns = sequence.length();
 		int rows = cipherText.length() / columns;
 		char[][] matrix = new char[rows][columns];
