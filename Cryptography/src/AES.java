@@ -46,9 +46,4 @@ class AES{
 		cipher.init(Cipher.DECRYPT_MODE, secretKey);
 		return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
 	}
-	
-	public static void main(String[] args) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-		System.out.println(encrypt("amrfouad", "mohamedfouad"));
-		System.out.println(decrypt("amrfouad", "We2dx2QCQ9kHeSRGNA3fQw=="));
-	}
 }
