@@ -35,7 +35,7 @@ public class CryptographyManager {
 			case "monoalphabetic":
 				return Monoalphabetic.encrypt(key, plainText);
 			case "aes":
-				AES.encrypt(key, plainText);
+				return AES.encrypt(key, plainText);
 			case "caesar":
 				return Caesar.encrypt(plainText, Integer.parseInt(key));
 		}
@@ -70,7 +70,7 @@ public class CryptographyManager {
 			case "monoalphabetic":
 				return Monoalphabetic.decrypt(key, cipherText);
 			case "aes":
-				AES.decrypt(key, cipherText);
+				return AES.decrypt(key, cipherText);
 			case "caesar":
 				return Caesar.decrypt(cipherText, Integer.parseInt(key));
 		}
